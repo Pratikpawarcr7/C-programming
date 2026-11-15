@@ -11,20 +11,40 @@
 */
 
 #include <stdio.h>
+#include <stdbool.h>
 
-void Display()
+bool CheckDivisible(int iNo) // Helper function dont use printf and scanf in this function
 {
-    int iCnt = 0;
+    int iResult = 0;
+    iResult = iNo % 3; // iResult madhi 0 either 1 yeil
 
-    for (iCnt = 1; iCnt <= 10; iCnt++)
+    if (iResult == 0)
     {
-        printf("%d\n", iCnt);
+        return true; // true chi return value is 1
+    }
+    else
+    {
+        return false; // false chi return value is 0
     }
 }
 int main()
 {
 
-    Display();
+    int iValue = 0;
+    bool bFlag = false; // false chi return value is 0 aasti mhanun 0 Aaivajii false write kela
+    printf("Enter the number\n");
+    scanf("%d\n", &iValue);
+
+    bFlag = CheckDivisible(iValue);
+
+    if (bFlag == true)
+    {
+        printf("%d is divisible by 3", iValue);
+    }
+    else
+    {
+        printf("%d is not divisible by 3", iValue);
+    }
 
     return 0;
 }
